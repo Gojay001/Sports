@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xin.gojay.nmid.dao.ActivityDao">
+
+    <!--根据id获取活动信息-->
+    <select id="getActivityById" resultType="Activity" parameterType="Integer">
+        <!-- 具体的sql -->
+        SELECT *
+        FROM activities WHERE activity_id = #{id}
+    </select>
+
+    <!--获取所有活动-->
+    <select id="getAllActivity" resultType="Activity">
+        <!-- 具体的sql -->
+        SELECT *
+        FROM activities
+        ORDER BY activity_id
+    </select>
+
+    <!--记录用户与活动的映射-->
+    <insert id="insertUserActivity" parameterType="UserActivity" useGeneratedKeys="true" keyProperty="serial_num">
+        INSERT INTO user_activity(user_id, activity_id)
+        VALUES (#{userId}, #{activityId})
+    </insert>
+</mapper>
