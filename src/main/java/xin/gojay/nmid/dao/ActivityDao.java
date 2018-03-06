@@ -29,4 +29,11 @@ public interface ActivityDao {
      * @return 成功标志
      */
     int insertUserActivity(UserActivity mapper);
+
+    /**
+     * 创建新活动
+     * @param activity 活动实体
+     * @return 成功标志
+     */
+    int insertActivity(Activity activity);
 }

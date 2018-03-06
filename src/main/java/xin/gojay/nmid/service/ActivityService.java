@@ -1,5 +1,6 @@
 package xin.gojay.nmid.service;
 
+import xin.gojay.nmid.entity.Activity;
 import xin.gojay.nmid.utils.ResponseUtil;
 
 /**
@@ -27,4 +28,11 @@ public interface ActivityService {
      * @return 响应消息
      */
     ResponseUtil joinActivity(int userId, int activityId);
+
+    /**
+     * 创建活动
+     * @param activity 活动实体
+     * @return 响应消息
+     */
+    ResponseUtil createActivity(Activity activity);
 }

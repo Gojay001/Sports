@@ -20,8 +20,14 @@
     </select>
 
     <!--记录用户与活动的映射-->
-    <insert id="insertUserActivity" parameterType="UserActivity" useGeneratedKeys="true" keyProperty="serial_num">
+    <insert id="insertUserActivity" parameterType="UserActivity" useGeneratedKeys="true" keyProperty="serialNum">
         INSERT INTO user_activity(user_id, activity_id)
         VALUES (#{userId}, #{activityId})
+    </insert>
+
+    <!--记录新的活动-->
+    <insert id="insertActivity" parameterType="Activity" useGeneratedKeys="true" keyProperty="activityId">
+        INSERT INTO activities(activity_name, initiator, content, remarks, start_time, end_time, location, people_needs, activity_or_race)
+        VALUES (#{activityName}, #{initiator}, #{content}, #{remarks}, #{startTime}, #{endTime}, #{location}, #{peopleNeeds}, #{activityOrRace})
     </insert>
 </mapper>

@@ -7,6 +7,8 @@ import xin.gojay.nmid.service.UserService;
 import xin.gojay.nmid.utils.ResponseUtil;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Gojay
@@ -21,20 +23,36 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public ResponseUtil signIn(User user) {
-        // 查询本地数据库是否存在该用户
+    public ResponseUtil searchUser(User user) {
         User existedUser = userDao.getUserById(user.getId());
-        if (existedUser != null && user.getPassword().equals(existedUser.getPassword())) {
-            ResponseUtil responseUtil = new ResponseUtil(200, "success");
-            responseUtil.setBody(existedUser);
-            return responseUtil;
+        if (existedUser != null) {
+            //用户id与密码匹配成功则返回
+            if (user.getPassword().equals(existedUser.getPassword())) {
+                ResponseUtil responseUtil = new ResponseUtil(200, "OK#成功返回");
+                responseUtil.setBody(existedUser);
+                return responseUtil;
+            }
+            return new ResponseUtil(400, "ERROR#密码错误");
         }
-        // 若不存在则储存用户信息
-        if (userDao.insertUser(user) != FAIL) {
-            ResponseUtil responseUtil = new ResponseUtil(200, "success");
-            responseUtil.setBody(user);
-            return responseUtil;
+        return new ResponseUtil(400, "ERROR#用户不存在");
+    }
+
+    @Override
+    public ResponseUtil createUser(User user) {
+        if (userDao.insertUser(user) == FAIL) {
+            return new ResponseUtil(500, "ERROR#添加用户失败");
         }
-        return new ResponseUtil(500, "error");
+        ResponseUtil responseUtil = new ResponseUtil(200, "OK#成功返回");
+        responseUtil.setBody(user);
+        return responseUtil;
+    }
+
+    @Override
+    public ResponseUtil searchActivity(int userId) {
+        List<Integer> activityIdList;
+        activityIdList = userDao.getActivity(userId);
+        ResponseUtil responseUtil = new ResponseUtil(200, "OK#成功返回");
+        responseUtil.setBody(activityIdList);
+        return responseUtil;
     }
 }

@@ -7,13 +7,20 @@
     <!--根据用户id查询用户记录-->
     <select id="getUserById" resultType="User" parameterType="Integer">
         <!-- 具体的sql -->
-        SELECT id, userName, gender, password, nick_name, qq_num, telephone_num, profile_pic, ability, class, control, college
+        SELECT *
         FROM user WHERE id = #{id}
     </select>
 
     <!--将用户信息写入user表-->
     <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO user(id, userName, gender, password, nick_name, qq_num, telephone_num, profile_pic, ability, class, control, college)
-        VALUES (#{id}, #{userName}, #{gender}, #{password}, #{nickname}, #{qqNum}, #{telephoneNum}, #{profilePic}, #{ability}, #{classNum}, #{control}, #{college})
+        INSERT INTO user(id, user_name, gender, password, nick_name, qq_num, telephone_num, profile_pic, ability, class, control, college)
+        VALUES (#{id}, #{userName}, #{gender}, #{password}, #{nickName}, #{qqNum}, #{telephoneNum}, #{profilePic}, #{ability}, #{classNum}, #{control}, #{college})
     </insert>
+
+    <!--根据用户id查询用户活动-->
+    <select id="getActivity" resultType="Integer" parameterType="Integer">
+        <!-- 具体的sql -->
+        SELECT activity_id
+        FROM user_activity WHERE user_id = #{userId}
+    </select>
 </mapper>

@@ -1,5 +1,7 @@
 package xin.gojay.nmid.entity;
 
+import java.sql.Timestamp;
+
 /**
  * @author Gojay
  * @date 2017/11/30
@@ -10,9 +12,9 @@ public class Activity {
     private String initiator;
     private String content;
     private String remarks;
-    private long initTime;
-    private long startTime;
-    private long endTime;
+    private Timestamp initTime;
+    private String startTime;
+    private String endTime;
     private String location;
     private int peopleNeeds;
     private int peopleHave;
@@ -24,7 +26,7 @@ public class Activity {
     }
 
     public Activity(int activityId, String activityName, String initiator, String content,
-                    String remarks, long initTime, long startTime, long endTime, String location,
+                    String remarks, Timestamp initTime, String startTime, String endTime, String location,
                     int peopleNeeds, int peopleHave, String activityPic, String activityOrRace, int clickNumber) {
         this.activityId = activityId;
         this.activityName = activityName;
@@ -102,27 +104,27 @@ public class Activity {
         this.remarks = remarks;
     }
 
-    public long getInitTime() {
+    public Timestamp getInitTime() {
         return initTime;
     }
 
-    public void setInitTime(long initTime) {
+    public void setInitTime(Timestamp initTime) {
         this.initTime = initTime;
     }
 
-    public long getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(long startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public long getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(long endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 

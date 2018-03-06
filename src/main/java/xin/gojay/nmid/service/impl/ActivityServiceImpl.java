@@ -54,6 +54,15 @@ public class ActivityServiceImpl implements ActivityService {
             responseUtil = new ResponseUtil(500, "ERROR#加入活动失败");
         }
         responseUtil = new ResponseUtil(200, "OK#成功返回");
+        responseUtil.setBody(mapper);
         return responseUtil;
+    }
+
+    @Override
+    public ResponseUtil createActivity(Activity activity) {
+        if (activityDao.insertActivity(activity) == FALSE) {
+            responseUtil = new ResponseUtil(500, "ERROR#创建活动失败");
+        }
+        return getActivityById(activity.getActivityId());
     }
 }

@@ -5,51 +5,72 @@ package xin.gojay.nmid.entity;
  * @date 2017/11/30
  */
 public class User {
-    private Integer id;
+    private int id;
+    private String classNum;
+    private String password;
     private String userName;
     private String gender;
-    private String password;
-    private String nickname;
+    private int major;
+    private String college;
+    private String nickName;
+    private String profilePic;
+    private String control;
     private String qqNum;
     private String telephoneNum;
-    private String profilePic;
+    private String sportMajor;
+    private String sportAge;
     private int ability;
-    private String classNum;
-    private String control;
-    private String college;
 
     public User() {
     }
 
-    public User(Integer id, String userName, String password) {
+    public User(int id, String password) {
         this.id = id;
-        this.userName = userName;
         this.password = password;
     }
 
-    public User(Integer id, String userName, String gender,
-                String password, String nickname, String qqNum, String telephoneNum,
-                String profilePic, int ability, String classNum, String control, String college) {
+    public User(int id, String classNum, String password, String userName, String gender,
+                int major, String college, String nickName, String profilePic, String control,
+                String qqNum, String telephoneNum, String sportMajor, String sportAge, int ability) {
         this.id = id;
+        this.classNum = classNum;
+        this.password = password;
         this.userName = userName;
         this.gender = gender;
-        this.password = password;
-        this.nickname = nickname;
+        this.major = major;
+        this.college = college;
+        this.nickName = nickName;
+        this.profilePic = profilePic;
+        this.control = control;
         this.qqNum = qqNum;
         this.telephoneNum = telephoneNum;
-        this.profilePic = profilePic;
+        this.sportMajor = sportMajor;
+        this.sportAge = sportAge;
         this.ability = ability;
-        this.classNum = classNum;
-        this.control = control;
-        this.college = college;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public String getClassNum() {
+        return classNum;
+    }
+
+    public void setClassNum(String classNum) {
+        this.classNum = classNum;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getUserName() {
@@ -68,20 +89,44 @@ public class User {
         this.gender = gender;
     }
 
-    public String getPassword() {
-        return password;
+    public int getMajor() {
+        return major;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setMajor(int major) {
+        this.major = major;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getCollege() {
+        return college;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setCollege(String college) {
+        this.college = college;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
+    }
+
+    public String getControl() {
+        return control;
+    }
+
+    public void setControl(String control) {
+        this.control = control;
     }
 
     public String getQqNum() {
@@ -100,12 +145,20 @@ public class User {
         this.telephoneNum = telephoneNum;
     }
 
-    public String getProfilePic() {
-        return profilePic;
+    public String getSportMajor() {
+        return sportMajor;
     }
 
-    public void setProfilePic(String profilePic) {
-        this.profilePic = profilePic;
+    public void setSportMajor(String sportMajor) {
+        this.sportMajor = sportMajor;
+    }
+
+    public String getSportAge() {
+        return sportAge;
+    }
+
+    public void setSportAge(String sportAge) {
+        this.sportAge = sportAge;
     }
 
     public int getAbility() {
@@ -116,45 +169,24 @@ public class User {
         this.ability = ability;
     }
 
-    public String getClassNum() {
-        return classNum;
-    }
-
-    public void setClassNum(String classNum) {
-        this.classNum = classNum;
-    }
-
-    public String getControl() {
-        return control;
-    }
-
-    public void setControl(String control) {
-        this.control = control;
-    }
-
-    public String getCollege() {
-        return college;
-    }
-
-    public void setCollege(String college) {
-        this.college = college;
-    }
-
     @Override
     public String toString() {
         return "User{" +
-                "id='" + id + '\'' +
+                "id=" + id +
+                ", classNum='" + classNum + '\'' +
+                ", password='" + password + '\'' +
                 ", userName='" + userName + '\'' +
                 ", gender='" + gender + '\'' +
-                ", password='" + password + '\'' +
-                ", nickname='" + nickname + '\'' +
+                ", major=" + major +
+                ", college='" + college + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", profilePic='" + profilePic + '\'' +
+                ", control='" + control + '\'' +
                 ", qqNum='" + qqNum + '\'' +
                 ", telephoneNum='" + telephoneNum + '\'' +
-                ", profilePic='" + profilePic + '\'' +
+                ", sportMajor='" + sportMajor + '\'' +
+                ", sportAge='" + sportAge + '\'' +
                 ", ability=" + ability +
-                ", classNum='" + classNum + '\'' +
-                ", control='" + control + '\'' +
-                ", college='" + college + '\'' +
                 '}';
     }
 }

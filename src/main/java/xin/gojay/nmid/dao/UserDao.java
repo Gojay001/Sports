@@ -2,6 +2,9 @@ package xin.gojay.nmid.dao;
 
 import org.springframework.stereotype.Repository;
 import xin.gojay.nmid.entity.User;
+import xin.gojay.nmid.entity.UserActivity;
+
+import java.util.List;
 
 /**
  * @author Gojay
@@ -14,7 +17,7 @@ public interface UserDao {
      * @param id 用户id
      * @return 用户信息
      */
-    User getUserById(Integer id);
+    User getUserById(int id);
 
     /**
      * 储存用户信息
@@ -22,4 +25,11 @@ public interface UserDao {
      * @return 成功标志
      */
     int insertUser(User user);
+
+    /**
+     * 获取用户活动ID
+     * @param userId 用户ID
+     * @return 活动ID列表
+     */
+    List<Integer> getActivity(int userId);
 }
