@@ -36,4 +36,6 @@ public interface ActivityDao {
      * @return 成功标志
      */
     int insertActivity(Activity activity);
+
+
 }

@@ -27,7 +27,7 @@
 
     <!--记录新的活动-->
     <insert id="insertActivity" parameterType="Activity" useGeneratedKeys="true" keyProperty="activityId">
-        INSERT INTO activities(activity_name, initiator, content, remarks, start_time, end_time, location, people_needs, activity_or_race)
-        VALUES (#{activityName}, #{initiator}, #{content}, #{remarks}, #{startTime}, #{endTime}, #{location}, #{peopleNeeds}, #{activityOrRace})
+        INSERT INTO activities(activity_name, initiator, content, remarks, start_time, end_time, location, people_needs, activity_or_race, activity_pic)
+        VALUES (#{activityName}, #{initiator}, #{content}, #{remarks}, #{startTime}, #{endTime}, #{location}, #{peopleNeeds}, #{activityOrRace}, #{activityPic})
     </insert>
 </mapper>

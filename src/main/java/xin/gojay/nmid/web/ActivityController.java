@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import xin.gojay.nmid.entity.Activity;
 import xin.gojay.nmid.service.ActivityService;
 import xin.gojay.nmid.utils.ResponseUtil;
@@ -54,7 +55,8 @@ public class ActivityController {
                                        @Param("endTime") String endTime,
                                        @Param("location") String location,
                                        @Param("peopleNeeds") int peopleNeeds,
-                                       @Param("activityOrRace") String activityOrRace) {
+                                       @Param("activityOrRace") String activityOrRace,
+                                       MultipartHttpServletRequest request) {
         Activity activity = new Activity();
         activity.setActivityName(activityName);
         activity.setInitiator(initiator);
@@ -65,6 +67,6 @@ public class ActivityController {
         activity.setLocation(location);
         activity.setPeopleNeeds(peopleNeeds);
         activity.setActivityOrRace(activityOrRace);
-        return activityService.createActivity(activity);
+        return activityService.createActivity(activity, request);
     }
 }

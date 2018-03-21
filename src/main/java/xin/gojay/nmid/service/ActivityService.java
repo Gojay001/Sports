@@ -1,5 +1,6 @@
 package xin.gojay.nmid.service;
 
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import xin.gojay.nmid.entity.Activity;
 import xin.gojay.nmid.utils.ResponseUtil;
 
@@ -32,7 +33,15 @@ public interface ActivityService {
     /**
      * 创建活动
      * @param activity 活动实体
+     * @param request 请求
      * @return 响应消息
      */
-    ResponseUtil createActivity(Activity activity);
+    ResponseUtil createActivity(Activity activity, MultipartHttpServletRequest request);
+
+    /**
+     * 储存图片
+     * @param request 请求
+     * @return 图片名称
+     */
+    StringBuilder saveImage(MultipartHttpServletRequest request);
 }
