@@ -86,7 +86,7 @@ public class ActivityServiceImpl implements ActivityService {
                 continue;
             }
             // 储存图片到本地项目路径
-            String name = ImageUtil.saveImage(file, request);
+            String name = ImageUtil.saveImage(file, request, "/images/activity");
             /// 获取图片名称
             // System.out.println(name);
             if (name == null) {

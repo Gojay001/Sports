@@ -15,13 +15,13 @@ public class ImageUtil {
     private static final String PNG = ".PNG";
     private static final String JPG = ".JPG";
 
-    public static String saveImage(MultipartFile file, HttpServletRequest request) {
+    public static String saveImage(MultipartFile file, HttpServletRequest request, String location) {
         if (file == null) {
             return null;
         }
-        String path = request.getSession().getServletContext().getRealPath("upload/images");
+        String path = request.getSession().getServletContext().getRealPath(location);
         /// 查看图片存储路径
-        // System.out.println(request.getSession().getServletContext().getRealPath("upload/images"));
+        // System.out.println(request.getSession().getServletContext().getRealPath(location));
 
         if (!new File(path).exists() || !new File(path).isDirectory()) {
             if (!new File(path).mkdirs()) {

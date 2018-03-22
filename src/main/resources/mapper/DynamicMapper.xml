@@ -4,5 +4,25 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xin.gojay.nmid.dao.DynamicDao">
 
+    <!--根据动态ID获取动态消息记录-->
+    <select id="getDynamic" resultType="Dynamic" parameterType="Integer">
+        <!-- 具体的sql -->
+        SELECT *
+        FROM dynamics WHERE dynamic_id = #{dynamicId}
+    </select>
+
+    <!--获取所有动态消息记录-->
+    <select id="getAllDynamic" resultType="Dynamic">
+        <!-- 具体的sql -->
+        SELECT *
+        FROM dynamics
+        ORDER BY init_time
+    </select>
+
+    <!--增加一条动态消息记录-->
+    <insert id="insertDynamic" parameterType="Dynamic" useGeneratedKeys="true" keyProperty="dynamicId">
+        INSERT INTO dynamics(user_id, words, dynamic_pic)
+        VALUES (#{userId}, #{words}, #{dynamicPic})
+    </insert>
 
 </mapper>
